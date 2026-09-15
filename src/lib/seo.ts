@@ -1,6 +1,9 @@
 import { SITE } from "./constants";
 
-export const SITE_URL = "https://apexcarpentry.co.nz";
+// Placeholder production URL: this concept is deployed to Vercel, not yet
+// on a purchased Apex Carpentry domain. Update this once a real domain
+// exists so canonical/OG/JSON-LD all point to the live production address.
+export const SITE_URL = "https://apexcarpentrysite.vercel.app";
 
 export function buildLocalBusinessJsonLd() {
   return {
