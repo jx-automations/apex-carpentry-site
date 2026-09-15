@@ -1,36 +1,49 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Apex Carpentry Ltd — Website Concept
 
-## Getting Started
+A premium, design-led marketing website for Apex Carpentry Ltd, an Auckland
+residential building company. Built with Next.js, TypeScript, Tailwind CSS
+and GSAP.
 
-First, run the development server:
+## Stack
+
+- Next.js (App Router) + TypeScript
+- Tailwind CSS (custom design tokens in `src/app/globals.css`)
+- GSAP + ScrollTrigger for scroll-based motion, gated by `prefers-reduced-motion`
+- `next/image` for responsive, optimized images
+- `next/font/google` (Fraunces + Inter)
+
+## Getting started
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Project structure
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- `src/app` — routes, layout, metadata, sitemap/robots
+- `src/components/layout` — Header, MobileMenu, Footer, FloatingQuoteCTA
+- `src/components/sections` — one component per homepage section
+- `src/components/ui` — shared primitives (Lightbox, AccordionItem, SectionHeading)
+- `src/components/motion` — GSAP provider and scroll-reveal wrapper
+- `src/lib/images.ts` — single source of truth for every photo used on the site
+- `src/lib/estimator` — the quote estimator's state machine (pure, framework-agnostic)
+- `src/hooks` — scroll lock, focus trap, reduced motion, scroll-past-hero
+- `scripts/process-images.mjs` — one-off pipeline that resizes/strips metadata
+  from the raw source photography into `public/images/<category>/`
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Content notes
 
-## Learn More
+- Every factual claim on the site (Auckland, since 2016, LBP, the five listed
+  services) is sourced from the business's own logo and Instagram bio. No
+  pricing, testimonials, team members, or unverified claims are included.
+- The quote estimator is a qualification tool only. It deliberately never
+  shows a dollar figure or range, since no real Apex Carpentry pricing data
+  exists to base one on.
+- The contact form is UI only; there is no backend wired up yet, and the
+  success state says so explicitly rather than claiming a message was sent.
 
-To learn more about Next.js, take a look at the following resources:
+## Deployment
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Not yet deployed. A new GitHub repository and Vercel project should be
+created once this concept is reviewed and approved.
