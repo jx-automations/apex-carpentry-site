@@ -49,7 +49,7 @@ export default function Hero({
       </div>
 
       <div className="relative z-10 mx-auto max-w-7xl w-full px-4 sm:px-8 pb-16 sm:pb-24 pt-32">
-        <p className="text-xs tracking-[0.2em] uppercase text-[var(--color-paper)]/70 mb-4">
+        <p className="text-xs tracking-[0.2em] uppercase text-white mb-4 [text-shadow:0_1px_4px_rgba(0,0,0,0.45)]">
           {SITE.location}
         </p>
         <h1

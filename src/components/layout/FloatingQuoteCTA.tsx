@@ -3,6 +3,7 @@
 import { RefObject, useEffect, useRef } from "react";
 import gsap from "gsap";
 import { useHasScrolledPastHero } from "@/hooks/useHasScrolledPastHero";
+import { useSectionInView } from "@/hooks/useSectionInView";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
 
 export default function FloatingQuoteCTA({
@@ -10,7 +11,12 @@ export default function FloatingQuoteCTA({
 }: {
   heroSentinelRef: RefObject<HTMLElement | null>;
 }) {
-  const visible = useHasScrolledPastHero(heroSentinelRef);
+  const pastHero = useHasScrolledPastHero(heroSentinelRef);
+  // Contact already has its own "Request a Quote" submit button, so hide the
+  // floating one there too rather than doubling up, the same reasoning that
+  // keeps it off the hero.
+  const contactInView = useSectionInView("contact");
+  const visible = pastHero && !contactInView;
   const ref = useRef<HTMLAnchorElement>(null);
   const reduced = useReducedMotion();
 
